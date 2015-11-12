@@ -10,6 +10,7 @@ En esta práctica en particular ejercitaremos las tecnologías:
 ## Pre requisitos
 
 * Docker, el siguiente enlace describe como instalar Docker: http://docs.docker.com/v1.8/installation/
+* Docker compose, si docker se instalo sobre windows, docker compose debe instalarse en la maquina virtual donde se instalo docker, el siguiente enlace describe como instalarlo: https://docs.docker.com/compose/install/
 
 ## Correr el CI environment
 Para correr este demo basta con clonar el repositorio:
@@ -17,15 +18,10 @@ Para correr este demo basta con clonar el repositorio:
 git clone https://github.com/VictorCabello/CI_Docker_Env.git
 ```
 
-Compilar el código:
+Correr el ambiente uttilizamos docker-compose de la siguiente manera:
 ```
 cd CI_Docker_Env
-docker build -t mycompan/jenkins .
-```
-
-Y Correr nuestras nuevas instancias:
-```
-docker run --name myjenkins -p 8080:8080 mycompany/jenkins
+docker-compose up
 ```
 
 
@@ -36,12 +32,11 @@ docker run --name myjenkins -p 8080:8080 mycompany/jenkins
 * Generar un Jenkins container con la lista de plugins requeridos.
 * Crear un mecanismo que permita representar los Jenkins jobs en forma de código.
 * Crear un primer draft de un simple pipeline
+* Configurar Docker Compose para arrancar el ambiente de forma sencilla
 
 ### Por hacer
 
-* Mover la lista de objetivos a los GitHub Issues para dar más claridad al avance.
 * Integrar Jeknis GitHub
-* Configurar Docker Compose para arrancar el ambiente de forma sencilla
 * Almacenar el resultado del build en Nexus (Crear un contenedor para Nexus)
 * Incluir un application server (por ejemplo tomcat) para hacer deploy de la aplicación.
 * Configurar un Selenium Grid para correr smoke test.
