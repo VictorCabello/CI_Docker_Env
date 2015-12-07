@@ -1,8 +1,37 @@
 println "initializing...."
 
 job('Build'){
+  properties {
+    githubProjectUrl('VictorCabello/Maven-Spring-MVC')
+  }
+
+  scm {
+      git {
+          remote {
+              github('VictorCabello/Maven-Spring-MVC')
+              refspec('+refs/pull/*:refs/remotes/origin/pr/*')
+          }
+          branch('${sha1}')
+      }
+  }
+  triggers {
+      pullRequest {
+          cron('* * * * *')
+          permitAll()
+          autoCloseFailedPullRequests()
+          extensions {
+              commitStatus {
+                  context('perfrom test ')
+                  startedStatus('test code...')
+                  completedStatus('SUCCESS', 'All is well')
+                  completedStatus('FAILURE', 'Something went wrong. Investigate!')
+              }
+          }
+      }
+  }
+
   steps {
-    shell( 'echo \'Building code\'')
+    shell( 'mvn clean install')
   }
 }
 
