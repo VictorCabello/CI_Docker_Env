@@ -1,4 +1,4 @@
 myjenkins:
-  build: .
+  build: jenkins 
   ports:
     - "8080:8080"
