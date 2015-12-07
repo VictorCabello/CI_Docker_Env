@@ -21,7 +21,7 @@ git clone https://github.com/VictorCabello/CI_Docker_Env.git
 Correr el ambiente uttilizamos docker-compose de la siguiente manera:
 ```
 cd CI_Docker_Env
-docker-compose up
+docker-compose --x-networking up
 ```
 
 

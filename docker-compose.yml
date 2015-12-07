@@ -2,3 +2,13 @@ myjenkins:
   build: jenkins 
   ports:
     - "8080:8080"
+
+tomcat:
+  build: tomcat
+  ports:
+    - "8888:8080"
+
+nexus:
+  build: nexus
+  ports:
+    - "8081:8081"
